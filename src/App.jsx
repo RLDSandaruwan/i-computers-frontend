@@ -1,21 +1,29 @@
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ProductCard from "./components/productCard";
+import Test from "./components/test";
+import HomePage from "./pages/homePage";
+import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import AdminPage from "./pages/adminPage";
+import TestPage from "./pages/test";
+
+
 
 function App() {
-
-
 	return (
-		<>			
 
-			<ProductCard name="Laptop" price="100,000.00" image="https://picsum.photos/id/1/200/300" />
+		<BrowserRouter>
+			<div className="w-full h-screen bg-primary text-secondary ">
 
-      <ProductCard name="Phone" price="90,000.00" image="https://picsum.photos/id/3/200/300" />
-
-      <ProductCard name="Watch" price="5,000.00" image="https://picsum.photos/id/5/200/300" />
-
-
-		</>
+				<Routes path="/">
+					<Route path="/*" element={<HomePage/>} />
+					<Route path="/login" element={<LoginPage/>}/>
+					<Route path="/register" element={<RegisterPage/>}/>
+					<Route path="/admin/*" element={<AdminPage/>}/>
+					<Route path="/test" element={<TestPage/>}/>
+				</Routes>
+			</div>
+		</BrowserRouter>
 	);
 }
 
